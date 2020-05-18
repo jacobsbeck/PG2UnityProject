@@ -72,6 +72,7 @@
     <Compile Include="Assets\Script\Object\interactBehaviour.cs" />
     <Compile Include="Assets\Script\Object\InventoryObject.cs" />
     <Compile Include="Assets\Script\Object\KeyObject.cs" />
+    <Compile Include="Assets\Script\Object\ObjectsManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Samuel/Documents/Github/PG2UnityProject/InventoryV0.0.1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

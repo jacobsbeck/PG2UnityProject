@@ -11,6 +11,7 @@ TagManager:
   - elementText
   - amountText
   - Inventory
+  - Collectable
   layers:
   - Default
   - TransparentFX
