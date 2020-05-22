@@ -19,23 +19,46 @@ public class DisplayBackground : MonoBehaviour
         }
     }
 
+    public bool UVFilter
+    {
+        get { return uvfilter; }
+        set
+        {
+            uvfilter = value;
+        }
+    }
+
     private int currentWall;
     private int previousWall;
+    private bool uvfilter;
 
     private void Start()
     {
         currentWall = 1;
         previousWall = 1;
+        uvfilter = false;
     }
 
     void Update()
     {
-        if (currentWall != previousWall)
+        if (currentWall != previousWall && uvfilter == false)
         {
             Debug.Log("currentWall" + currentWall);
             Debug.Log("previousWall" + previousWall);
-            GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Room" + currentWall.ToString());
+            RefreshFilterNormal();
+        } else if (currentWall != previousWall && uvfilter == true)
+        {
+            RefreshFilterRed();
         }
         previousWall = currentWall;
+    }
+
+    public void RefreshFilterNormal()
+    {
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Room" + currentWall.ToString());
+    }
+    public void RefreshFilterRed()
+    {
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/RedRoom" + currentWall.ToString());
     }
 }

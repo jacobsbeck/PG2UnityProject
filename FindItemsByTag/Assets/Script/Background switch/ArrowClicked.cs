@@ -19,4 +19,17 @@ public class ArrowClicked : MonoBehaviour
     {
         currentBackground.CurrentWall = currentBackground.CurrentWall - 1;
     }
+
+    public void OnUVClick()
+    {
+        currentBackground.UVFilter = !currentBackground.UVFilter;
+        if (currentBackground.UVFilter == false)
+        {
+            currentBackground.RefreshFilterNormal();
+        }
+        else
+        {
+            currentBackground.RefreshFilterRed();
+        }
+    }
 }
