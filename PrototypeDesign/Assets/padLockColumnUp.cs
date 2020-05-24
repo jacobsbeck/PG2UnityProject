@@ -30,6 +30,7 @@ public class padLockColumnUp : MonoBehaviour
         {
             clickerCounter++;
         }
+        Debug.Log(clickerCounter);
         Column.text = capAlph[clickerCounter];
     }
 }

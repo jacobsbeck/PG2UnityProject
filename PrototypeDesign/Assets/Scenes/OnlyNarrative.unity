@@ -788,7 +788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -414.99, y: 46}
+  m_AnchoredPosition: {x: -366, y: 46}
   m_SizeDelta: {x: 73.45, y: 25.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &628153484
@@ -913,7 +913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -414.76, y: 0}
+  m_AnchoredPosition: {x: -365.77002, y: 0}
   m_SizeDelta: {x: 73, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850970504
@@ -1264,7 +1264,7 @@ MonoBehaviour:
     out\n\t- hand drawn frame of a car \n\t- an open ventilation pipe in the corner
     of the room\n\t- fuse box, locked by a key\n\t- small picture of children\n\t-
     a sticky note on top of the night stand(riddle)\n\t\t- \u201Cthey were only born
-    a few minutes apart\u201D\n\n- inspects picture of car, and sees a signature of
+    a few years apart\u201D\n\n- inspects picture of car, and sees a signature of
     a last name on the bottom of picture\n\t- contacts PC regarding the name he saw\n\t-
     PC reveals the first name, which PR can unlock the cypher\n\n- uses the name to
     unlock cypher lock\n- opens closet to sees an array of fancy clothing fit for
@@ -1841,7 +1841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -414.76, y: -42.1}
+  m_AnchoredPosition: {x: -365.77002, y: -42.1}
   m_SizeDelta: {x: 73, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318222111

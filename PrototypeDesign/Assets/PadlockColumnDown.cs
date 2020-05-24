@@ -28,6 +28,7 @@ public class PadlockColumnDown : MonoBehaviour
         {
             padLockUp.clickerCounter--;
         }
+        Debug.Log(padLockUp.clickerCounter);
         padLockUp.Column.text = capAlph[padLockUp.clickerCounter];
     }
 }
