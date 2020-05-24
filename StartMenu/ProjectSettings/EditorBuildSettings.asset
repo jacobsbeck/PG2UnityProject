@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 76785e99559cf1c438a99e683d548db3
+  - enabled: 1
+    path: Assets/Scenes/PoliceScene.unity
+    guid: 3a3a6e45360f2451d8a54e7f3646a086
+  - enabled: 1
+    path: Assets/Scenes/PoliceScene1.unity
+    guid: b8af5041581bc47c1a46e3ebfaf7b089
+  - enabled: 1
+    path: Assets/Scenes/TimeLimitSelection.unity
+    guid: 043a47a41e420ad4ca2c102da1c67582
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: dfc26125659bade4b9ccc016861c0610
+  m_configObjects: {}
