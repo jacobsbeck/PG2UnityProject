@@ -38,4 +38,13 @@ public class ScenesManager : MonoBehaviour
         PlayerPrefs.SetFloat("Timer Active", 1);
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void loadSample()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+    public void Tolocker()
+    {
+        SceneManager.LoadScene("Locker");
+    }
 }
