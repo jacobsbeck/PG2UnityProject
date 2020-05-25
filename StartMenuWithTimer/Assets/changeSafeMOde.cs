@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class changeSafeMOde : MonoBehaviour
 {
+    public Camera cam;
     public NumPadMaster safePuzzle;
     public Sprite openSafe;
     int count = 0;
     public GameObject key;
+    public AudioClip Ding;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,6 @@ public class changeSafeMOde : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = openSafe;
         key.SetActive(true);
+        cam.GetComponent<AudioSource>().PlayOneShot(Ding);
     }
 }
