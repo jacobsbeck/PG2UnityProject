@@ -10,8 +10,9 @@ public class combinationPuzzleManager : MonoBehaviour
     public padLockColumnUp col3;
     public padLockColumnUp col4;
     public padLockColumnUp col5;
-    public GameObject puzzleCanvas;
     public int sentOnce = 0;
+    private bool puzzleSolved = false;
+    public bool closetOpened = false;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class combinationPuzzleManager : MonoBehaviour
             sentOnce++;
             Debug.Log("unlocked");
             StartCoroutine(waitToChange());
+            soundManager.PlaySound("unlockCypher");
         }
 
     }
@@ -38,7 +40,7 @@ public class combinationPuzzleManager : MonoBehaviour
     IEnumerator waitToChange()
     {
         Debug.Log("ey");
-        yield return new WaitForSecondsRealtime(3);
-        puzzleCanvas.SetActive(false);
+        yield return new WaitForSecondsRealtime(1);
+        closetOpened = true;
     }
 }

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Inventory
+  - Collectable
+  - BlueWall
+  - backgroundImage
+  - Room1
+  - fuseKey
   layers:
   - Default
   - TransparentFX
