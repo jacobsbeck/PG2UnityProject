@@ -17,17 +17,22 @@ public class SearchController : MonoBehaviour
     private long curNumber = 0;
     private string curName = "";
     private List<UserData> savedUsers = new List<UserData>();
+    private string[] startUsers = { "Lydia Davis/1992-07-25", "Kyle Johnson/2016-11-03", "Jake Davis/2018-05-02" };
+
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log(DateTime.Now);
         searchButton.onClick.AddListener(searchForUser);
-        CallData callTest = new CallData();
-        callTest.initalize("Found Me", 9999999999, DateTime.Now, 99);
-        UserData testUser = new UserData();
-        CallData[] c = {callTest};
-        testUser.initalize("Hidden", 9999999999, DateTime.Now, c);
-        savedUsers.Add(testUser);
+        CallData hid = new CallData();
+        hid.initalize("Hidden", 9999999999, DateTime.Now, 99);
+        CallData[] c = {hid};
+        for (int i = 0; i < startUsers.Length; i++) {
+            UserData testUser = new UserData();
+            DateTime d = DateTime.Parse(startUsers[i].Split('/')[1]);
+            testUser.initalize(startUsers[i].Split('/')[0], getRandomNumber(), d, c);
+            savedUsers.Add(testUser);
+        }
     }
 
     // Update is called once per frame

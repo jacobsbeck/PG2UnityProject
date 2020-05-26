@@ -2897,6 +2897,8 @@ MonoBehaviour:
   noPageWindow: {fileID: 496454942}
   puzzleWindow: {fileID: 781765110}
   puzzleWindow1: {fileID: 1991198559}
+  puzzleWindow2: {fileID: 836662104}
+  puzzleWindow3: {fileID: 1463741169}
   urlText: {fileID: 433360973}
 --- !u!1 &568836286
 GameObject:
