@@ -20,6 +20,7 @@ public class camcontroll : MonoBehaviour
     }
     public void backToMain()
     {
+        soundManager.PlaySound("clickUI");
         cam.transform.position = new Vector3(-0.02f ,0,-10);
         main.SetActive(true);
         newUI.SetActive(false);

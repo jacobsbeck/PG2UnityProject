@@ -30,5 +30,6 @@ public class PadlockColumnDown : MonoBehaviour
         }
         Debug.Log(padLockUp.clickerCounter);
         padLockUp.Column.text = capAlph[padLockUp.clickerCounter];
+        soundManager.PlaySound("changeLetters");
     }
 }

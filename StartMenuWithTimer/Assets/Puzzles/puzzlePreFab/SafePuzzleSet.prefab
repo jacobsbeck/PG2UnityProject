@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3444278118085104469
 Transform:
   m_ObjectHideFlags: 0
@@ -1345,8 +1345,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3444278118859232158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.03, y: -0.25, z: -0.47}
+  m_LocalScale: {x: 1.04737, y: 1.04737, z: 1.04737}
   m_Children:
   - {fileID: 3444278119309458698}
   - {fileID: 3444278118279377894}
@@ -1409,8 +1409,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3444278118987047309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.25, z: 10}
-  m_LocalScale: {x: 2.2009935, y: 2.2009935, z: 2.2009935}
+  m_LocalPosition: {x: -0.019000024, y: -0.50100005, z: 10}
+  m_LocalScale: {x: 2.374412, y: 2.374412, z: 2.374412}
   m_Children: []
   m_Father: {fileID: 3444278118085104469}
   m_RootOrder: 0
@@ -1477,6 +1477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   safePuzzle: {fileID: 3444278118859232156}
   openSafe: {fileID: 21300000, guid: 49c2e17a6b21c6f4a9446e61bca5b7b3, type: 3}
+  key: {fileID: 0}
 --- !u!1 &3444278119134500913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1505,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3444278119134500913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.47}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 3444278118272294847}
@@ -1513,7 +1514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.030000001, y: -0.25}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &3444278119134500877

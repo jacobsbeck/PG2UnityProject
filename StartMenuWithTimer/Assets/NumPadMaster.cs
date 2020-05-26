@@ -52,8 +52,9 @@ public class NumPadMaster : MonoBehaviour
             {
                 numInput[i] = 0;
             }
+            soundManager.PlaySound("safeClear");
         }
-        else if(clickerCounter <= 8)
+        else if(clickerCounter <= 8)//??
         {
             Debug.Log("added");
             numInput[clickerCounter] = buttonClicked;
@@ -76,6 +77,10 @@ public class NumPadMaster : MonoBehaviour
             Debug.Log("goodJob");
             isOpen = true;
             safePuzzle.SetActive(false);
+        }
+        else
+        {
+            soundManager.PlaySound("safeWrong");
         }
         inputString = "";
         for (int i = 0; i <= numInput.Length - 1; i++)

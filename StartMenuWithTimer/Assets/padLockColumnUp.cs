@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class padLockColumnUp : MonoBehaviour
 {
-    public Text Column;
+    //public Text Column;
     public int clickerCounter = 0;
+    public TextMeshProUGUI Column;
 
     //Ooga booga Caveman brain implementation for now. 
     string[] capAlph = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", 
@@ -32,5 +34,6 @@ public class padLockColumnUp : MonoBehaviour
         }
         Debug.Log(clickerCounter);
         Column.text = capAlph[clickerCounter];
+        soundManager.PlaySound("changeLetters");
     }
 }
