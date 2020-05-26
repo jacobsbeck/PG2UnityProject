@@ -10,6 +10,8 @@ TagManager:
   - backgroundImage
   - Room1
   - fuseKey
+  - page1
+  - page2
   layers:
   - Default
   - TransparentFX
