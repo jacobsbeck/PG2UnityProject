@@ -109,15 +109,9 @@ public class SearchController : MonoBehaviour
 
     private string getRandomName()
     {
-        string path = "Assets/firstNames.txt";
-        string path2 = "Assets/lastNames.txt";
+        string[] linesFirst = FileData.firstNames;
 
-        //Read the text from directly from the test.txt file
-        StreamReader reader = new StreamReader(path);
-        string[] linesFirst = reader.ReadToEnd().Split('\n');
-
-        StreamReader reader2 = new StreamReader(path2);
-        string[] linesLast = reader2.ReadToEnd().Split('\n');
+        string[] linesLast = FileData.lastNames;
         return linesFirst[UnityEngine.Random.Range(0, linesFirst.Length)] + " " +
             linesLast[UnityEngine.Random.Range(0, linesLast.Length)];
     }
@@ -176,16 +170,13 @@ public class SearchController : MonoBehaviour
 
     private bool validateName()
     {
-        string path = "Assets/firstNames.txt";
-        string path2 = "Assets/lastNames.txt";
 
         bool firstNameValid = false;
         bool lastNameValid = false;
         if (searchTxt.text.Split(' ').Length == 2)
         {
             //Read the text from directly from the test.txt file
-            StreamReader reader = new StreamReader(path);
-            string[] linesFirst = reader.ReadToEnd().Split('\n');
+            string[] linesFirst = FileData.firstNames;
             for (int i = 0; i < linesFirst.Length; i++)
             {
                 if (linesFirst[i].ToLower() == searchTxt.text.Split(' ')[0].ToLower())
@@ -195,8 +186,7 @@ public class SearchController : MonoBehaviour
                 }
             }
 
-            StreamReader reader2 = new StreamReader(path2);
-            string[] linesLast = reader2.ReadToEnd().Split('\n');
+            string[] linesLast = FileData.lastNames;
             for (int i = 0; i < linesLast.Length; i++)
             {
                 if (linesLast[i].ToLower() == searchTxt.text.Split(' ')[1].ToLower())

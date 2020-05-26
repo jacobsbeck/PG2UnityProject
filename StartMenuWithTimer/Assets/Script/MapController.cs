@@ -8,12 +8,7 @@ public class MapController : MonoBehaviour
     public Transform callContainer;
     public Text callText;
     private int callIndex = 0;
-    private string[] callInfo = {
-        "Jimmy James/1:45 AM/Arson",
-        "Katie Kall/10:37 AM/Missing Person",
-        "Tom Tele/2:53 PM/Missing Person",
-        "Abbie Apple/3:19 AM/Home Invasion"
-    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +19,7 @@ public class MapController : MonoBehaviour
                 if (on)
                 {
                     callCheck(call);
-                    string[] callData = callInfo[callIndex].Split('/');
+                    string[] callData = FileData.calls[callIndex].Split('/');
                     callText.text = "Caller - " + callData[0] + "\nTime - " + callData[1] + "\nReason - " + callData[2];
                 }
             });

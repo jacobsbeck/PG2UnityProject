@@ -62,15 +62,16 @@
   <ItemGroup>
     <Compile Include="Assets\Script\ApplicationController.cs" />
     <Compile Include="Assets\Script\DesktopBehavior.cs" />
-    <Compile Include="Assets\Script\FileBehavior.cs" />
     <Compile Include="Assets\Script\FolderBehavior.cs" />
     <Compile Include="Assets\Script\MapController.cs" />
+    <Compile Include="Assets\Script\RotatePuzzle.cs" />
     <Compile Include="Assets\Script\SearchController.cs" />
     <Compile Include="Assets\Script\TabController.cs" />
     <Compile Include="Assets\Script\Triggers.cs" />
     <Compile Include="Assets\Script\WindowBehavior.cs" />
     <None Include="Assets\lastNames.txt" />
     <None Include="Assets\firstNames.txt" />
+    <None Include="Assets\test.txt" />
     <None Include="Assets\calls.txt" />
     <None Include="Assets\crimes.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
