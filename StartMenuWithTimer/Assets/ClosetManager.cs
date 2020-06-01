@@ -84,7 +84,7 @@ public class ClosetManager : MonoBehaviour
                 }
                 else
                 {
-                    this.gameObject.GetComponent<SpriteRenderer>().sprite = suitBattery;
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = suitClean;
                 }
             }
         }

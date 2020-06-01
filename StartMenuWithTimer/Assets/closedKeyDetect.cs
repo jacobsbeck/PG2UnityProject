@@ -24,6 +24,7 @@ public class closedKeyDetect : MonoBehaviour
         if (inventorysystem.GetComponent<InventorySystem>().currentitem() == "Key-PNG-Clipart-Background")
         {
             Debug.Log("KEY DETECTED"); //if (inventorysystem.GetComponent<InventorySystem>().currentitem() == "Key-PNG-Clipart-Background")
+            inventorysystem.GetComponent<InventorySystem>().remove();
             isOpenKey = true;
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class paintView : MonoBehaviour
 {
     public Camera cam;
-    public GameObject canvas;
+    public GameObject arrows;
     public GameObject newUI;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class paintView : MonoBehaviour
     void OnMouseDown()
     {
         cam.transform.position = new Vector3(0.6f, -17, -10);
-        canvas.SetActive(true);
+        arrows.SetActive(false);
         newUI.SetActive(true);
     }
 }

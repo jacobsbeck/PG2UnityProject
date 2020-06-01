@@ -669,7 +669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3aa6c3b953f94086a97be8346d06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerCounter: 17
+  clickerCounter: 0
+  startLetter: 8
+  letterMultiplier: 3
   Column: {fileID: 1903862555873858727}
 --- !u!1 &1707648200476618590
 GameObject:
@@ -1373,7 +1375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3aa6c3b953f94086a97be8346d06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerCounter: 15
+  clickerCounter: 0
+  startLetter: 9
+  letterMultiplier: -3
   Column: {fileID: 7171098964217162052}
 --- !u!1 &1707648201056653854
 GameObject:
@@ -1692,7 +1696,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3aa6c3b953f94086a97be8346d06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerCounter: 25
+  clickerCounter: 0
+  startLetter: 9
+  letterMultiplier: -3
   Column: {fileID: 1130049996623661698}
 --- !u!1 &1707648201276000303
 GameObject:
@@ -1926,7 +1932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3aa6c3b953f94086a97be8346d06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerCounter: 2
+  clickerCounter: 0
+  startLetter: 18
+  letterMultiplier: 2
   Column: {fileID: 794695562984897742}
 --- !u!1 &1707648201445157203
 GameObject:
@@ -2048,7 +2056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b3aa6c3b953f94086a97be8346d06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickerCounter: 16
+  clickerCounter: 0
+  startLetter: 8
+  letterMultiplier: 3
   Column: {fileID: 5084732385427346608}
 --- !u!1 &1707648201703551607
 GameObject:
@@ -2390,6 +2400,11 @@ MonoBehaviour:
   dress: {fileID: 21300000, guid: d4e9fb8171c79ee4bb17f0b3e197db68, type: 3}
   child1: {fileID: 21300000, guid: 2329421c160a6ff4dbbba4a349c4c743, type: 3}
   child2: {fileID: 21300000, guid: 3edb4bf0a96b6c84382c331c1b0eef25, type: 3}
+  fuseUV: {fileID: 0}
+  suitCleanBlue: {fileID: 0}
+  dressBlue: {fileID: 0}
+  child1Blue: {fileID: 0}
+  child2Blue: {fileID: 0}
   forwardCount: {fileID: 2038113438465217393}
   backwardCount: {fileID: 3991144379906411829}
   batteryItem: {fileID: 5395575069092206854}
