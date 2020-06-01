@@ -10,7 +10,6 @@ public class buttonPress : MonoBehaviour
     // Start is called before the first frame update
     public void OnMouseDown()
     {
-        soundManager.PlaySound("safeKeypad");
         Debug.Log(myNumber);
         numpadmaster.buttonClicked = myNumber;
         numpadmaster.clickerCounter++;

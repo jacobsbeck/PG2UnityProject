@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,14 +23,21 @@ public class PadlockColumnDown : MonoBehaviour
         Debug.Log("down");
         if (padLockUp.clickerCounter == 0)
         {
-            padLockUp.clickerCounter = 25;
+            padLockUp.clickerCounter = 3;
+            padLockUp.currentLetter = padLockUp.startLetter + (padLockUp.letterMultiplier * 3);
+            padLockUp.Column.text = capAlph[padLockUp.currentLetter];
         }
         else
         {
             padLockUp.clickerCounter--;
+            padLockUp.currentLetter -= padLockUp.letterMultiplier;
+            if (padLockUp.currentLetter < 0)
+            {
+                    padLockUp.currentLetter += 26;
+            }
+            padLockUp.Column.text = capAlph[padLockUp.currentLetter];
         }
-        Debug.Log(padLockUp.clickerCounter);
-        padLockUp.Column.text = capAlph[padLockUp.clickerCounter];
+        Debug.Log(padLockUp.currentLetter);
         soundManager.PlaySound("changeLetters");
     }
 }

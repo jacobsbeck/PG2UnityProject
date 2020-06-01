@@ -22,11 +22,11 @@ public class combinationPuzzleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (col1.clickerCounter == 11
-            && col2.clickerCounter == 24
-            && col3.clickerCounter == 3
-            && col4.clickerCounter == 8
-            && col5.clickerCounter == 0
+        if (col1.clickerCounter == 1
+            && col2.clickerCounter == 3
+            && col3.clickerCounter == 2
+            && col4.clickerCounter == 0
+            && col5.clickerCounter == 3
             && sentOnce == 0)
         {
             sentOnce++;
