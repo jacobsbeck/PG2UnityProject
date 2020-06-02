@@ -4,18 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System;
+using System.Globalization;
 
 public class SearchController : MonoBehaviour
 {
     public UnityEngine.UI.Button searchButton;
     public InputField searchTxt;
+    public RectTransform searchWindow;
+    public RectTransform profileWindow;
+
+    public RectTransform searchContainer;
+    public GameObject resultContainer;
+
     public RectTransform historyContainer;
     public GameObject callContainer;
     public Text noResults;
 
     public RectTransform profileContainer;
-    private long curNumber = 0;
-    private string curName = "";
     private List<UserData> savedUsers = new List<UserData>();
     private string[] startUsers = { "Lydia Davis/1992-07-25", "Kyle Johnson/2016-11-03", "Jake Davis/2018-05-02" };
 
@@ -25,14 +30,15 @@ public class SearchController : MonoBehaviour
         Debug.Log(DateTime.Now);
         searchButton.onClick.AddListener(searchForUser);
         CallData hid = new CallData();
-        hid.initalize("Hidden", 9999999999, DateTime.Now, 99);
+        hid.initalize("Found", "Me", 9999999999, DateTime.Now, 99);
         CallData[] c = {hid};
         for (int i = 0; i < startUsers.Length; i++) {
             UserData testUser = new UserData();
             DateTime d = DateTime.Parse(startUsers[i].Split('/')[1]);
-            testUser.initalize(startUsers[i].Split('/')[0], getRandomNumber(), d, c);
+            testUser.initalize(startUsers[i].Split('/')[0].Split(' ')[0], startUsers[i].Split('/')[0].Split(' ')[1], getRandomNumber(), d, c);
             savedUsers.Add(testUser);
         }
+
     }
 
     // Update is called once per frame
@@ -44,15 +50,114 @@ public class SearchController : MonoBehaviour
     private void searchForUser()
     {
         clearSearchResults();
-        UserData user = new UserData();
-        bool useName = false;
-        if (validateNumber())
+        List<UserData> users = new List<UserData>();
+        bool useNumber = false;
+        int nameSearched = validateName();
+        long numSearched = validateNumber();
+        string curName = "";
+        if (numSearched != -99999999999)
         {
-            user = numberIsSaved();
+            if (numberIsSaved(numSearched) != null) {
+                users.Add(numberIsSaved(numSearched));
+            }
+            useNumber = true;
         }
-        else if (validateName())
+        else if (nameSearched != 0)
         {
-            user = userIsSaved();
+            curName = searchTxt.text;
+            users = nameIsSaved(curName, nameSearched);
+        }
+        else {
+            noResults.rectTransform.localScale = new Vector3(1, 1, 1);
+            return;
+        }
+
+        if (users.Count == 0)
+        {
+            int k = 1;
+            if (!useNumber && nameSearched != 3)
+            {
+                k = UnityEngine.Random.Range(1, 15);
+            }
+            if (k <= 7) {
+                searchContainer.sizeDelta = new Vector2(1000, 350);
+            }
+            searchContainer.sizeDelta = new Vector2(1000, 50 * k);
+            for (int j = 0; j < k; j++)
+            {
+                int numCalls = UnityEngine.Random.Range(0, 10);
+                UserData user = new UserData();
+                if (!useNumber)
+                {
+                    if (nameSearched == 1)
+                    {
+                        string tempLast = getRandomLastName();
+                        user.initalize(curName, tempLast, getRandomNumber() ,getRandomBirthdate(), new CallData[numCalls]);
+                    }
+                    else if (nameSearched == 2)
+                    {
+                        string tempFirst = getRandomFirstName();
+                        user.initalize(tempFirst, curName, getRandomNumber(), getRandomBirthdate(), new CallData[numCalls]);
+                    }
+                    else if (nameSearched == 3)
+                    {
+                        user.initalize(curName.Split(' ')[0], curName.Split(' ')[1], getRandomNumber(), getRandomBirthdate(), new CallData[numCalls]);
+                    }
+                }
+                else
+                {
+                    user.initalize(getRandomFirstName(), getRandomLastName(), numSearched, getRandomBirthdate(), new CallData[numCalls]);
+                }
+
+                //historyContainer.sizeDelta = new Vector2(700, 50 * numCalls);
+                DateTime t = DateTime.Now;
+                CallData previousCall = null;
+                for (int i = 0; i < numCalls; i++)
+                {
+                    CallData curCall = new CallData();
+                    int check = UnityEngine.Random.Range(0, 2);
+                    string str = "";
+                    long n = 0;
+                    if (check == 0 && previousCall != null)
+                    {
+                        str = previousCall.firstName + " " + previousCall.lastName;
+                        n = previousCall.number;
+                    }
+                    else
+                    {
+                        str = getRandomFirstName() + " " + getRandomLastName();
+                        n = getRandomNumber();
+                    }
+                    curCall.initalize(str.Split(' ')[0], str.Split(' ')[1], n, getRandomDate(t), UnityEngine.Random.Range(0, 100));
+                    previousCall = curCall;
+                    user.calls[i] = curCall;
+                }
+                savedUsers.Add(user);
+                users.Add(user);
+            }
+        }
+
+        for (int i = 0; i < users.Count; i++)
+        {
+            GameObject r = Instantiate(resultContainer);
+            r.GetComponent<ResultController>().user = users[i];
+            r.transform.GetChild(0).GetComponent<Text>().text = users[i].firstName + " " + users[i].lastName;
+            r.transform.GetChild(1).GetComponent<Text>().text = users[i].number.ToString();
+            r.transform.SetParent(searchContainer);
+            r.transform.localPosition = new Vector3(500, -50 * i - 25, 0);
+        }
+
+        //profileContainer.GetChild(0).GetComponent<Text>().text = user.name;
+        //profileContainer.GetChild(1).GetComponent<Text>().text = user.number.ToString();
+        //profileContainer.GetChild(2).GetComponent<Text>().text = user.birthday.ToString();
+        /*
+        if (numSearched)
+        {
+            user = numberIsSaved(curNumber);
+        }
+        else if (nameSearched == 3)
+        {
+            user = nameIsSaved();
             useName = true;
         }
         else {
@@ -101,7 +206,7 @@ public class SearchController : MonoBehaviour
             GameObject call = Instantiate(callContainer);
             call.transform.GetChild(0).GetComponent<Text>().text = user.calls[i].name;
             call.transform.GetChild(1).GetComponent<Text>().text = user.calls[i].number.ToString();
-            call.transform.GetChild(2).GetComponent<Text>().text = user.calls[i].date.ToString();
+            call.transform.GetChild(2).GetComponent<Text>().text = user.calls[i].date.ToString("D", CultureInfo.CreateSpecificCulture("en-US"));
             call.transform.GetChild(3).GetComponent<Text>().text = user.calls[i].duration.ToString() + "mins";
             call.transform.SetParent(historyContainer);
             call.transform.localPosition = new Vector3(350, -50 * i - 25, 0);
@@ -110,15 +215,20 @@ public class SearchController : MonoBehaviour
         profileContainer.GetChild(0).GetComponent<Text>().text = user.name;
         profileContainer.GetChild(1).GetComponent<Text>().text = user.number.ToString();
         profileContainer.GetChild(2).GetComponent<Text>().text = user.birthday.ToString();
+        */
     }
 
-    private string getRandomName()
+    private string getRandomFirstName()
     {
         string[] linesFirst = FileData.firstNames;
 
+        return linesFirst[UnityEngine.Random.Range(0, linesFirst.Length)];
+    }
+
+    private string getRandomLastName()
+    {
         string[] linesLast = FileData.lastNames;
-        return linesFirst[UnityEngine.Random.Range(0, linesFirst.Length)] + " " +
-            linesLast[UnityEngine.Random.Range(0, linesLast.Length)];
+        return linesLast[UnityEngine.Random.Range(0, linesLast.Length)];
     }
 
     private long getRandomNumber()
@@ -157,40 +267,41 @@ public class SearchController : MonoBehaviour
         t = t.AddHours(UnityEngine.Random.Range(-24, 0));
         t = t.AddDays(UnityEngine.Random.Range(-7, 0));
         t = t.AddMonths(UnityEngine.Random.Range(-12, 0));
-        t = t.AddYears(UnityEngine.Random.Range(-60, -18));
+        t = t.AddYears(UnityEngine.Random.Range(-90, -18));
         return t;
     }
 
-    private bool validateNumber()
+    private long validateNumber()
     {
         string numberToCheck = searchTxt.text;
         numberToCheck.Replace("-", "");
         numberToCheck.Replace(" ", "");
+        long cur = 0;
         if (numberToCheck.Length == 10)
         {
-            return long.TryParse(numberToCheck, out curNumber);
+            if (long.TryParse(numberToCheck, out cur)) {
+                return cur;
+            }
         }
-        return false;
+        return -99999999999;
     }
 
-    private bool validateName()
+    private int validateName()
     {
-
         bool firstNameValid = false;
         bool lastNameValid = false;
+        //Read the text from directly from the test.txt file
+        string[] linesFirst = FileData.firstNames;
+        for (int i = 0; i < linesFirst.Length; i++)
+        {
+            if (linesFirst[i].ToLower() == searchTxt.text.Split(' ')[0].ToLower())
+            {
+                firstNameValid = true;
+                break;
+            }
+        }
         if (searchTxt.text.Split(' ').Length == 2)
         {
-            //Read the text from directly from the test.txt file
-            string[] linesFirst = FileData.firstNames;
-            for (int i = 0; i < linesFirst.Length; i++)
-            {
-                if (linesFirst[i].ToLower() == searchTxt.text.Split(' ')[0].ToLower())
-                {
-                    firstNameValid = true;
-                    break;
-                }
-            }
-
             string[] linesLast = FileData.lastNames;
             for (int i = 0; i < linesLast.Length; i++)
             {
@@ -200,41 +311,66 @@ public class SearchController : MonoBehaviour
                     break;
                 }
             }
-        }
-
-        if  (firstNameValid && lastNameValid) {
-            curName = searchTxt.text;
-            return true;
-        } else {
-            foreach (UserData user in savedUsers)
+        } else if (firstNameValid != true) {
+            string[] linesLast = FileData.lastNames;
+            for (int i = 0; i < linesLast.Length; i++)
             {
-                if (user.name.Equals(searchTxt.text))
+                if (linesLast[i].ToLower() == searchTxt.text.Split(' ')[0].ToLower())
                 {
-                    curName = searchTxt.text;
-                    return true;
+                    lastNameValid = true;
+                    break;
                 }
             }
-            return false;
         }
+
+        if (firstNameValid && lastNameValid)
+        {
+            return 3;
+        }
+        else if (firstNameValid) {
+            return 1;
+        }
+        else if (lastNameValid)
+        {
+            return 2;
+        }
+        return 0;
     }
 
-    private UserData userIsSaved()
+    private List<UserData> nameIsSaved(string nameSearched, int nameInput)
     {
+        List<UserData> u = new List<UserData>();
         foreach (UserData user in savedUsers)
         {
-            if (user.name.Equals(curName))
+            if (nameInput == 1)
             {
-                return user;
+                if (user.firstName.Equals(nameSearched))
+                {
+                    u.Add(user);
+                }
+            }
+            else if (nameInput == 2)
+            {
+                if (user.lastName.Equals(nameSearched))
+                {
+                    u.Add(user);
+                }
+            } else if (nameInput == 3){
+                if (user.firstName.Equals(nameSearched.Split(' ')[0]) && user.lastName.Equals(nameSearched.Split(' ')[1]))
+                {
+                    u.Add(user);
+                    Debug.Log(user.firstName + " " + user.lastName);
+                }
             }
         }
-        return null;
+        return u;
     }
 
-    private UserData numberIsSaved()
+    private UserData numberIsSaved(long numSearched)
     {
         foreach (UserData user in savedUsers)
         {
-            if (user.number.Equals(curNumber))
+            if (user.number.Equals(numSearched))
             {
                 return user;
             }
@@ -245,27 +381,35 @@ public class SearchController : MonoBehaviour
     private void clearSearchResults()
     {
         noResults.rectTransform.localScale = new Vector3(0, 1, 1);
+        profileWindow.transform.localScale = new Vector3(0, 1, 1);
+        searchWindow.transform.localScale = new Vector3(1, 1, 1);
+        foreach (Transform child in searchContainer)
+        {
+            Destroy(child.gameObject);
+        }
         foreach (Transform child in historyContainer)
         {
             Destroy(child.gameObject);
         }
-        historyContainer.sizeDelta = new Vector2(700, 200);
-        profileContainer.GetChild(0).GetComponent<Text>().text = "Name";
-        profileContainer.GetChild(1).GetComponent<Text>().text = "Number";
-        profileContainer.GetChild(2).GetComponent<Text>().text = "Birthdate";
+        historyContainer.sizeDelta = new Vector2(700, 300);
+        profileContainer.GetChild(0).GetComponent<Text>().text = "None";
+        profileContainer.GetChild(1).GetComponent<Text>().text = "None";
+        profileContainer.GetChild(2).GetComponent<Text>().text = "None";
     }
 }
 
 public class UserData
 {
-    public string name;
+    public string firstName;
+    public string lastName;
     public long number;
     public DateTime birthday;
     public CallData[] calls;
 
-    public void initalize(string na, long num, DateTime b, CallData[] c)
-    {
-        name = na;
+    public void initalize(string first, string last, long num, DateTime b, CallData[] c)
+    {   
+        firstName = first;
+        lastName = last;
         number = num;
         birthday = b;
         calls = c;
@@ -274,14 +418,16 @@ public class UserData
 
 public class CallData
 {
-    public string name;
+    public string firstName;
+    public string lastName;
     public long number;
     public DateTime date;
     public int duration;
 
-    public void initalize(string n, long num, DateTime d, int dur)
+    public void initalize(string first, string last, long num, DateTime d, int dur)
     {
-        name = n;
+        firstName = first;
+        lastName = last;
         number = num;
         date = d;
         duration = dur;

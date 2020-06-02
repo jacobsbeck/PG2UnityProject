@@ -64,7 +64,6 @@
     <Compile Include="Assets\Script\DesktopBehavior.cs" />
     <Compile Include="Assets\Script\FolderBehavior.cs" />
     <Compile Include="Assets\Script\MapController.cs" />
-    <Compile Include="Assets\Script\RotatePuzzle.cs" />
     <Compile Include="Assets\Script\SearchController.cs" />
     <Compile Include="Assets\Script\TabController.cs" />
     <Compile Include="Assets\Script\Triggers.cs" />
