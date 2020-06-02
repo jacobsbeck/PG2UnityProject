@@ -12,6 +12,7 @@ TagManager:
   - fuseKey
   - page1
   - page2
+  - keyDoor
   layers:
   - Default
   - TransparentFX

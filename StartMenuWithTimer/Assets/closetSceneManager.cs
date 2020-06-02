@@ -7,12 +7,13 @@ public class closetSceneManager : MonoBehaviour
     // Start is called before the first frame update
     public combinationPuzzleManager puzzleSolved;
     public GameObject puzzle;
+    public GameObject puzzleController;
     public GameObject closet;
     public GameObject lockCloset;
     private int changeScene = 0;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,10 +21,12 @@ public class closetSceneManager : MonoBehaviour
     {
         if (puzzleSolved.closetOpened == true && changeScene == 0)
         {
+            Debug.Log("hey");
             //soundManager.PlaySound("unlockCypher");
             puzzle.SetActive(false);
             closet.SetActive(true);
             lockCloset.SetActive(false);
+            puzzleController.SetActive(false);
             changeScene++;
         }
         

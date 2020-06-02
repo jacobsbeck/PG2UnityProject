@@ -5,7 +5,7 @@ using UnityEngine;
 public class camcontroll : MonoBehaviour
 {
     public Camera cam;
-    public GameObject main;
+    public GameObject arrow;
     public GameObject newUI;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class camcontroll : MonoBehaviour
     {
         soundManager.PlaySound("clickUI");
         cam.transform.position = new Vector3(-0.02f ,0,-10);
-        main.SetActive(true);
+        arrow.SetActive(true);
         newUI.SetActive(false);
     }
 }

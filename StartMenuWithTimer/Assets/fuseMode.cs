@@ -51,7 +51,8 @@ public class fuseMode : MonoBehaviour
         soundManager.PlaySound("UVlight");
         yield return new WaitForSecondsRealtime(2);
         isUV = true;
-        fuseboxOpenScene.SetActive(false);
         UVScene.SetActive(true);
+        batterySolved.SetActive(false);
+        fuseboxOpenScene.SetActive(false);
     }
 }

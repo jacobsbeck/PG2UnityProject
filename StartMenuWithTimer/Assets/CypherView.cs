@@ -22,7 +22,7 @@ public class CypherView : MonoBehaviour
     void OnMouseDown()
     {
         cam.transform.position = new Vector3(19.54f, 0, -10);
-        canvas.SetActive(true);
+        canvas.SetActive(false);
         newUI.SetActive(true);
     }
 }

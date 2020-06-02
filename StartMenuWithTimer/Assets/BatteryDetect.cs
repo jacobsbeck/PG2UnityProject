@@ -24,6 +24,7 @@ public class BatteryDetect : MonoBehaviour
         if (inventorysystem.GetComponent<InventorySystem>().currentitem() == "batteryItem")
         {
             Debug.Log("KEY DETECTED");
+            inventorysystem.GetComponent<InventorySystem>().remove();
             isOpenBattery = true;
         }
     }

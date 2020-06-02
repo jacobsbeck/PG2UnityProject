@@ -24,10 +24,10 @@ public static class FileData
 {
     public static string[] calls =
     {
-        "Jimmy James/1:45 AM/Arson",
-        "Katie Kall/10:37 AM/Missing Person",
-        "Tom Tele/2:53 PM/Missing Person",
-        "Abbie Apple/3:19 AM/Home Invasion"
+        "Dani Doll/05-09-2018/Arson",
+        "Katie Kall/12-10-2020/Missing Person",
+        "Tom Thomas/03-05-2018/Missing Person",
+        "Abbie Apple/02-01-2017/Home Invasion"
     };
 
     public static string[] lastNames =
@@ -88,6 +88,7 @@ public static class FileData
 
     public static string[] firstNames =
     {
+        "Tom",
         "Lydia",
         "Kyle",
         "Jake",

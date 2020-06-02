@@ -60,22 +60,25 @@ public class InventorySystem : MonoBehaviour
 
     public void remove()
     {
-        if(current_size != 0)
+        if (current_size != 0)
         {
-            for (int i = current_click; i < current_size; i++)//shift item
+            Image image = inventory_list[current_size - 1];
+            float r = image.color.r;
+            float g = image.color.g;
+            float b = image.color.b;
+            for (int i = current_click; i < current_size - 1; i++)//shift item
             {
                 if (i != -1) inventory_list[i].sprite = inventory_list[i + 1].sprite;
                 if (i != -1) is_enlarge_list[i] = is_enlarge_list[i + 1];
             }
-            Image image = inventory_list[current_size];
-            inventory_list[current_size - 1].color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+            inventory_list[current_size - 1].color = new Color(r, g, b, 0f);
             current_click = -1;
             foreach (Transform child in GameObject.FindWithTag("Inventory").gameObject.transform)
             {
                 if (child != gameObject.transform) child.GetComponent<Image>().color = Color.white;
             }
             current_size--;
-        }   
+        }
     }
 
     public bool Additem(Sprite input) 

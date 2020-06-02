@@ -22,7 +22,7 @@ public class SearchController : MonoBehaviour
 
     public RectTransform profileContainer;
     private List<UserData> savedUsers = new List<UserData>();
-    private string[] startUsers = { "Lydia Davis/1992-07-25", "Kyle Johnson/2016-11-03", "Jake Davis/2018-05-02" };
+    private string[] startUsers = { "Lydia Davis/1992-07-25", "Kyle Johnson/2016-11-03", "Jake Davis/2018-05-02"};
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,10 @@ public class SearchController : MonoBehaviour
             testUser.initalize(startUsers[i].Split('/')[0].Split(' ')[0], startUsers[i].Split('/')[0].Split(' ')[1], getRandomNumber(), d, c);
             savedUsers.Add(testUser);
         }
-
+        UserData mapUser = new UserData();
+        DateTime d1 = getRandomBirthdate();
+        mapUser.initalize("Tom", "Thomas", 2062164761, d1, c);
+        savedUsers.Add(mapUser);
     }
 
     // Update is called once per frame
@@ -433,3 +436,4 @@ public class CallData
         duration = dur;
     }
 }
+

@@ -20,7 +20,7 @@ public class MapController : MonoBehaviour
                 {
                     callCheck(call);
                     string[] callData = FileData.calls[callIndex].Split('/');
-                    callText.text = "Caller - " + callData[0] + "\nTime - " + callData[1] + "\nReason - " + callData[2];
+                    callText.text = "Caller: " + callData[0] + "\nDate: " + callData[1] + "\nReason: " + callData[2];
                 }
             });
         }

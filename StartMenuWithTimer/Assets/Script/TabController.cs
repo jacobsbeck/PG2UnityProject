@@ -14,10 +14,8 @@ public class TabController : MonoBehaviour
     public RectTransform searchWindow;
     public RectTransform mapWindow;
     public RectTransform noPageWindow;
-    public RectTransform puzzleWindow;
-    public RectTransform puzzleWindow1;
-    public RectTransform puzzleWindow2;
-    public RectTransform puzzleWindow3;
+    public RectTransform puzzleWindowBook;
+    public RectTransform puzzleWindowWall;
 
     public InputField urlText;
     private int currentTab = 0;
@@ -68,9 +66,14 @@ public class TabController : MonoBehaviour
     private void loadUrl() {
         string t = urlText.text.Replace("www.", "");
         clearCurrentWindow();
-        if (t == "test.com")
+        if (t == "bluelodge.com")
         {
-            puzzleWindow.localScale = new Vector3(1, 1, 1);
+            puzzleWindowWall.localScale = new Vector3(1, 1, 1);
+            puzzlePageShowing = true;
+        }
+        else if (t == "slusho.com")
+        {
+            puzzleWindowBook.localScale = new Vector3(1, 1, 1);
             puzzlePageShowing = true;
         }
         else if (t == "search.com")
@@ -81,22 +84,8 @@ public class TabController : MonoBehaviour
         {
             loadMapTab();
         }
-        else if (t == "test1.com")
-        {
-            puzzleWindow1.localScale = new Vector3(1, 1, 1);
-            puzzlePageShowing = true;
-        }
-        else if (t == "test2.com")
-        {
-            puzzleWindow2.localScale = new Vector3(1, 1, 1);
-            puzzlePageShowing = true;
-        }
-        else if (t == "test3.com")
-        {
-            puzzleWindow3.localScale = new Vector3(1, 1, 1);
-            puzzlePageShowing = true;
-        }
-        else if (t != "map.com" && t != "search.com" && t != "test.com")
+
+        else if (t != "map.com" && t != "search.com" && t != "bluelodge.com" && t != "slusho.com")
         {
             clearCurrentWindow();
             noPageWindow.localScale = new Vector3(1, 1, 1);
@@ -121,10 +110,8 @@ public class TabController : MonoBehaviour
         }
         else if (puzzlePageShowing)
         {
-            puzzleWindow.localScale = new Vector3(0, 1, 1);
-            puzzleWindow1.localScale = new Vector3(0, 1, 1);
-            puzzleWindow2.localScale = new Vector3(0, 1, 1);
-            puzzleWindow3.localScale = new Vector3(0, 1, 1);
+            puzzleWindowBook.localScale = new Vector3(0, 1, 1);
+            puzzleWindowWall.localScale = new Vector3(0, 1, 1);
             puzzlePageShowing = false;
         }
         else if (currentTab == 0) {

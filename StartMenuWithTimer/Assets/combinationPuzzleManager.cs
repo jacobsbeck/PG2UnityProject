@@ -9,24 +9,22 @@ public class combinationPuzzleManager : MonoBehaviour
     public padLockColumnUp col2;
     public padLockColumnUp col3;
     public padLockColumnUp col4;
-    public padLockColumnUp col5;
     public int sentOnce = 0;
     private bool puzzleSolved = false;
     public bool closetOpened = false;
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (col1.clickerCounter == 11
-            && col2.clickerCounter == 24
+        if (col1.clickerCounter == 3
+            && col2.clickerCounter == 3
             && col3.clickerCounter == 3
-            && col4.clickerCounter == 8
-            && col5.clickerCounter == 0
+            && col4.clickerCounter == 3
             && sentOnce == 0)
         {
             sentOnce++;

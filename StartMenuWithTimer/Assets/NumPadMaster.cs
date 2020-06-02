@@ -19,7 +19,7 @@ public class NumPadMaster : MonoBehaviour
     void Start()
     {
         displayBar.text = "EMPTY";
-        numInput = new int[9];
+        numInput = new int[9]; //+1 of intended size (if 4 then 5)
 
     }
 
@@ -39,24 +39,51 @@ public class NumPadMaster : MonoBehaviour
             Debug.Log("displaying");
             displayInput();
         }
-        else if (buttonClicked == -1 || clickerCounter > 9)
+        else if (buttonClicked == -1 || clickerCounter > 8)
         {
-            if (clickerCounter > 7)
+            if (clickerCounter > 8)
             {
                 Debug.Log("toomany");
+                soundManager.PlaySound("safeWrong");
+            }
+            else 
+            {
+                soundManager.PlaySound("safeClear");
             }
             Debug.Log("cleared");
+            for (int i = 1; i <= numInput.Length - 1; i++)
+            {
+                Debug.Log(numInput[i]);
+                inputString = inputString + numInput[i].ToString();
+            }
+            Debug.Log(inputString);
             inputString = "";
             clickerCounter = 0;
             for (int i = 0; i <= numInput.Length - 1; i++)
             {
                 numInput[i] = 0;
             }
-            soundManager.PlaySound("safeClear");
+        }
+        else if (buttonClicked == -2)//??
+        {
+            Debug.Log("Exit Clear");
+            for (int i = 1; i <= numInput.Length - 1; i++)
+            {
+                Debug.Log(numInput[i]);
+                inputString = inputString + numInput[i].ToString();
+            }
+            Debug.Log(inputString);
+            inputString = "";
+            clickerCounter = 0;
+            for (int i = 0; i <= numInput.Length - 1; i++)
+            {
+                numInput[i] = 0;
+            }
         }
         else if(clickerCounter <= 8)//??
         {
             Debug.Log("added");
+            soundManager.PlaySound("safeKeypad");
             numInput[clickerCounter] = buttonClicked;
         }
         buttonClicked = 0;
@@ -72,7 +99,7 @@ public class NumPadMaster : MonoBehaviour
         }
         Debug.Log(inputString);
         displayBar.text = inputString;
-        if (inputString.Equals("06010002"))
+        if (inputString.Equals("47610002"))
         {
             Debug.Log("goodJob");
             isOpen = true;
