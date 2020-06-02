@@ -71,16 +71,10 @@ public class ClosetManager : MonoBehaviour
             }
             else if (sceneCount == 0)
             {
-                if (batteryItem.isPicked == true)
+                if (fuseUV.isUV == true)
                 {
-                    if (fuseUV.isUV == true)
-                    {
-                        this.gameObject.GetComponent<SpriteRenderer>().sprite = suitCleanBlue;
-                    }
-                    else
-                    {
-                        this.gameObject.GetComponent<SpriteRenderer>().sprite = suitClean;
-                    }
+                    Debug.Log("SuitBlueMode");
+                    this.gameObject.GetComponent<SpriteRenderer>().sprite = suitCleanBlue;
                 }
                 else
                 {

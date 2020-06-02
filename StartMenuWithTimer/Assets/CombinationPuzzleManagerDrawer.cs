@@ -9,6 +9,7 @@ public class CombinationPuzzleManagerDrawer : MonoBehaviour
     public padLockColumnUp col2;
     public padLockColumnUp col3;
     public padLockColumnUp col4;
+    public padLockColumnUp col5;
     public int sentOnce = 0;
     private bool puzzleSolved = false;
     public bool closetOpened = false;
@@ -21,10 +22,11 @@ public class CombinationPuzzleManagerDrawer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (col1.clickerCounter == 3
+        if (col1.clickerCounter == 1
             && col2.clickerCounter == 3
-            && col3.clickerCounter == 3
-            && col4.clickerCounter == 3
+            && col3.clickerCounter == 2
+            && col4.clickerCounter == 0
+            && col5.clickerCounter == 3
             && sentOnce == 0)
         {
             sentOnce++;

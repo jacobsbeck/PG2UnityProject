@@ -54,7 +54,7 @@ public class colorPuzzleMaster : MonoBehaviour
             inputString = inputString + numInput[i].ToString();
         }
         Debug.Log(inputString);
-        if (inputString.Equals("1234"))
+        if (inputString.Equals("3432"))
         {
             soundManager.PlaySound("SafeboxRight");
             Debug.Log("goodJob");

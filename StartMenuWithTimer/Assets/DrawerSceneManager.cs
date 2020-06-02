@@ -6,6 +6,7 @@ public class DrawerSceneManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public CombinationPuzzleManagerDrawer puzzleSolved;
+    public GameObject puzzleController;
     public GameObject puzzle;
     public GameObject closet;
     public GameObject lockCloset;
@@ -25,6 +26,7 @@ public class DrawerSceneManager : MonoBehaviour
             puzzle.SetActive(false);
             closet.SetActive(true);
             lockCloset.SetActive(false);
+            puzzleController.SetActive(false);
             changeScene++;
         }
 

@@ -23,7 +23,7 @@ public class padLockColumnUp : MonoBehaviour
     //fourth col, mult+3: I(8),L(11),O(14), R(17)
     //fifth col, mult-3: J(9),G(6),D(3),A(0)
 
-    //alt fourth col, mult-3: E(4),H(7),K(10),N(13)
+    //alt fourth col, mult+3: E(4),H(7),K(10),N(13)
 
 
     // Start is called before the first frame update
