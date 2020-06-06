@@ -22,12 +22,8 @@ public class ToGrateScene : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if (fusemode.isUV == true)
-        {
-            cam.transform.position = new Vector3(-0.02f, -49.7f, -10);
-            canvas.SetActive(false);
-            newUI.SetActive(true);
-        }
-
+        cam.transform.position = new Vector3(-0.02f, -49.7f, -10);
+        canvas.SetActive(false);
+        newUI.SetActive(true);
     }
 }

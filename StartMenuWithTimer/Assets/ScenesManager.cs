@@ -47,4 +47,19 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene("Locker");
     }
+
+    public void policeIntroScenes()
+    {
+        SceneManager.LoadScene("PoliceIntro");
+    }
+
+    public void VictimIntroNoTime()
+    {
+        SceneManager.LoadScene("VictimIntroNoTime");
+    }
+
+    public void VictimIntroTime()
+    {
+        SceneManager.LoadScene("VictimIntroTime");
+    }
 }

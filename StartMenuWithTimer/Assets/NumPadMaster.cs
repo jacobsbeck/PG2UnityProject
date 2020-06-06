@@ -19,7 +19,7 @@ public class NumPadMaster : MonoBehaviour
     void Start()
     {
         displayBar.text = "EMPTY";
-        numInput = new int[9]; //+1 of intended size (if 4 then 5)
+        numInput = new int[6]; //+1 of intended size (if 4 then 5)
 
     }
 
@@ -34,12 +34,12 @@ public class NumPadMaster : MonoBehaviour
     }
     void EnqueueInput()
     {
-        if (buttonClicked == 10 && clickerCounter <= 9)
+        if (buttonClicked == 10 && clickerCounter <= 6)
         {
             Debug.Log("displaying");
             displayInput();
         }
-        else if (buttonClicked == -1 || clickerCounter > 8)
+        else if (buttonClicked == -1 || clickerCounter > 5)
         {
             if (clickerCounter > 8)
             {
@@ -64,7 +64,7 @@ public class NumPadMaster : MonoBehaviour
                 numInput[i] = 0;
             }
         }
-        else if (buttonClicked == -2)//??
+        else if (buttonClicked == -2)
         {
             Debug.Log("Exit Clear");
             for (int i = 1; i <= numInput.Length - 1; i++)
@@ -80,7 +80,7 @@ public class NumPadMaster : MonoBehaviour
                 numInput[i] = 0;
             }
         }
-        else if(clickerCounter <= 8)//??
+        else if(clickerCounter <= 5)
         {
             Debug.Log("added");
             soundManager.PlaySound("safeKeypad");
@@ -99,7 +99,7 @@ public class NumPadMaster : MonoBehaviour
         }
         Debug.Log(inputString);
         displayBar.text = inputString;
-        if (inputString.Equals("47610002"))
+        if (inputString.Equals("47612"))
         {
             Debug.Log("goodJob");
             isOpen = true;
