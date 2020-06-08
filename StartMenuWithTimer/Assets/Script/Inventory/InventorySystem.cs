@@ -31,6 +31,7 @@ public class InventorySystem : MonoBehaviour
             {
                 enlargedImage.enabled = true;
                 enlargedImage.sprite = inventory_list[current_click].sprite;
+                enlargedImage.GetComponent<BoxCollider2D>().enabled = true;
             }
             else
             {
@@ -72,6 +73,7 @@ public class InventorySystem : MonoBehaviour
                 if (i != -1) is_enlarge_list[i] = is_enlarge_list[i + 1];
             }
             inventory_list[current_size - 1].color = new Color(r, g, b, 0f);
+            is_enlarge_list[current_size - 1] = false;
             current_click = -1;
             foreach (Transform child in GameObject.FindWithTag("Inventory").gameObject.transform)
             {
