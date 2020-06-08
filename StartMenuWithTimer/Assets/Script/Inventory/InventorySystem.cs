@@ -31,7 +31,7 @@ public class InventorySystem : MonoBehaviour
             {
                 enlargedImage.enabled = true;
                 enlargedImage.sprite = inventory_list[current_click].sprite;
-                enlargedImage.GetComponent<BoxCollider2D>().enabled = true;
+                enlargedImage.GetComponent<Button>().enabled = true;
             }
             else
             {

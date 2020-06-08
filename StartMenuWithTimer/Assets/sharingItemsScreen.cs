@@ -17,7 +17,7 @@ public class sharingItemsScreen : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    public void OnbuttonDown()
     {
         GameObject inventorysystem = GameObject.FindWithTag("Inventory");
         inventorysystem.GetComponent<InventorySystem>().current_click = -1;
@@ -26,6 +26,6 @@ public class sharingItemsScreen : MonoBehaviour
             child.GetComponent<Image>().color = Color.white;
         }
         gameObject.GetComponent<Image>().enabled = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<Button>().enabled = false;
     }
 }
