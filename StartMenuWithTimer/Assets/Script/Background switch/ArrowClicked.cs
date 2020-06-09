@@ -8,6 +8,8 @@ public class ArrowClicked : MonoBehaviour
     private DisplayBackground currentBackground;
     public fuseMode fusebox;
     private int lightLock = 0;
+    public GameObject blueController;
+    public bool powerOn = false;
 
     private void Start() {
         currentBackground = GameObject.Find("Background").GetComponent<DisplayBackground>();
@@ -17,6 +19,11 @@ public class ArrowClicked : MonoBehaviour
     {
         if (fusebox.isUV == true && lightLock == 0)
         {
+            if (powerOn == false)
+            {
+                powerOn = true;
+                blueController.SetActive(true);
+            }
             lightLock++;
             currentBackground.UVFilter = !currentBackground.UVFilter;
             if (currentBackground.UVFilter == false)
@@ -43,6 +50,7 @@ public class ArrowClicked : MonoBehaviour
 
     public void OnUVClick()
     {
+        fusebox.isUV = !fusebox.isUV;
         currentBackground.UVFilter = !currentBackground.UVFilter;
         if (currentBackground.UVFilter == false)
         {

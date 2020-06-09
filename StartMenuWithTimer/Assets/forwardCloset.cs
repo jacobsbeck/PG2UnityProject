@@ -26,7 +26,7 @@ public class forwardCloset : MonoBehaviour
         else
         {
             closetScene.sceneCount++;
-            closetScene.isEvent = true;
+            //closetScene.isEvent = true;
         }
     }
 }

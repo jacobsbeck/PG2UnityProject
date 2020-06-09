@@ -6,7 +6,7 @@ public class paintingUVSetup : MonoBehaviour
 {
     public fuseMode fuseUV;
     public Sprite blueMode;
-    int counterLock = 0;
+    public Sprite normalMode;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +16,13 @@ public class paintingUVSetup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counterLock == 0 && fuseUV.isUV == true)
+        if (fuseUV.isUV == true)
         {
-            counterLock++;
             this.GetComponent<SpriteRenderer>().sprite = blueMode;
+        }
+        if (fuseUV.isUV == false)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = normalMode;
         }
     }
 }
