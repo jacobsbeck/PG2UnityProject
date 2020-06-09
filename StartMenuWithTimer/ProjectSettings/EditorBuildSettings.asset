@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PoliceScene.unity
     guid: 3a3a6e45360f2451d8a54e7f3646a086
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PoliceScene1.unity
     guid: b8af5041581bc47c1a46e3ebfaf7b089
   - enabled: 1
@@ -23,7 +23,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 801ced90e99db57439b2352bab6d8013
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Locker.unity
     guid: d95480072be7b034c94b04614d50112b
+  - enabled: 1
+    path: Assets/Scenes/PoliceIntro.unity
+    guid: 16a334027d314bd4eb3aa4f4442ad21e
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 956c5061d28b20b4a873d2597ae6573a
+  - enabled: 1
+    path: Assets/Scenes/New Scene.unity
+    guid: 7c5f2b9003471a94ca311b3e33171938
+  - enabled: 1
+    path: Assets/Scenes/VictimIntroNoTime.unity
+    guid: 6ea4a609d3433184a8e7c127f26af2fa
+  - enabled: 1
+    path: Assets/Scenes/VictimIntroTime.unity
+    guid: 1614af00fd2b24e448f30dedd82b3457
   m_configObjects: {}
