@@ -81,4 +81,9 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene("Ending");
     }
+
+    public void IntroToMainMenu()
+    {
+        SceneManager.LoadScene("IntroMainMenu");
+    }
 }
