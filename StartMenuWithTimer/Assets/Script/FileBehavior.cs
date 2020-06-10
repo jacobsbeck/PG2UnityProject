@@ -27,7 +27,18 @@ public static class FileData
         "Dani Doll/05-09-2018/Arson",
         "Katie Kall/12-10-2020/Missing Person",
         "Tom Thomas/03-05-2018/Missing Person",
-        "Abbie Apple/02-01-2017/Home Invasion"
+        "Abbie Apple/02-01-2017/Home Invasion",
+        "Jason Jordan/06-29-2019/Mugging",
+        "Daniel Donald/01-01-2017/Disorderly Conduct",
+        "Francis Jordan/09-25-2018/Missing Person",
+        "Lexis Lavish/02-02-2016/Arson",
+        "Georgia Fredrickson/03-13-2020/Roberry",
+        "Luis Gabriel/01-06-2019/Hostage",
+        "Posie Bear/11-26-2018/Home Invasion",
+        "Kith Kirby/11-25-2017/Home Invasion",
+        "Vanessa Vandal/09-23-2019/Missing Person",
+        "Robin Yang/01-15-2020/Disorderly Conduct",
+        "Tiffany Kay/10-17-2019/Driving Under the Influence"
     };
 
     public static string[] lastNames =

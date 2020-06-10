@@ -22,6 +22,7 @@ public class TabController : MonoBehaviour
     private bool noPageShowing = false;
     private bool puzzlePageShowing = false;
 
+    public AudioSource clickAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,9 @@ public class TabController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return)) {
             loadUrl();
+        }
+        if (Input.GetMouseButtonDown(0)) {
+            clickAudio.Play();
         }
     }
 

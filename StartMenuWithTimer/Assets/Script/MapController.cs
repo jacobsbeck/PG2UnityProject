@@ -48,5 +48,49 @@ public class MapController : MonoBehaviour
         {
             callIndex = 3;
         }
+        else if (call.name == "Location5")
+        {
+            callIndex = 4;
+        }
+        else if (call.name == "Location6")
+        {
+            callIndex = 5;
+        }
+        else if (call.name == "Location7")
+        {
+            callIndex = 6;
+        }
+        else if (call.name == "Location8")
+        {
+            callIndex = 7;
+        }
+        else if (call.name == "Location9")
+        {
+            callIndex = 8;
+        }
+        else if (call.name == "Location10")
+        {
+            callIndex = 9;
+        }
+        else if (call.name == "Location11")
+        {
+            callIndex = 10;
+        }
+        else if (call.name == "Location12")
+        {
+            callIndex = 11;
+        }
+        else if (call.name == "Location13")
+        {
+            callIndex = 12;
+        }
+        else if (call.name == "Location14")
+        {
+            callIndex = 13;
+        }
+        else if (call.name == "Location15")
+        {
+            callIndex = 14;
+        }
     }
 }

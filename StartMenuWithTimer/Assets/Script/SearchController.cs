@@ -95,16 +95,16 @@ public class SearchController : MonoBehaviour
                     if (nameSearched == 1)
                     {
                         string tempLast = getRandomLastName();
-                        user.initalize(curName, tempLast, getRandomNumber() ,getRandomBirthdate(), new CallData[numCalls]);
+                        user.initalize(FirstLetterToUpper(curName), tempLast, getRandomNumber() ,getRandomBirthdate(), new CallData[numCalls]);
                     }
                     else if (nameSearched == 2)
                     {
                         string tempFirst = getRandomFirstName();
-                        user.initalize(tempFirst, curName, getRandomNumber(), getRandomBirthdate(), new CallData[numCalls]);
+                        user.initalize(tempFirst, FirstLetterToUpper(curName), getRandomNumber(), getRandomBirthdate(), new CallData[numCalls]);
                     }
                     else if (nameSearched == 3)
                     {
-                        user.initalize(curName.Split(' ')[0], curName.Split(' ')[1], getRandomNumber(), getRandomBirthdate(), new CallData[numCalls]);
+                        user.initalize(FirstLetterToUpper(curName.Split(' ')[0]), FirstLetterToUpper(curName.Split(' ')[1]), getRandomNumber(), getRandomBirthdate(), new CallData[numCalls]);
                     }
                 }
                 else
@@ -219,6 +219,17 @@ public class SearchController : MonoBehaviour
         profileContainer.GetChild(1).GetComponent<Text>().text = user.number.ToString();
         profileContainer.GetChild(2).GetComponent<Text>().text = user.birthday.ToString();
         */
+    }
+
+    public string FirstLetterToUpper(string str)
+    {
+        if (str == null)
+            return null;
+
+        if (str.Length > 1)
+            return char.ToUpper(str[0]) + str.Substring(1);
+
+        return str.ToUpper();
     }
 
     private string getRandomFirstName()
@@ -347,19 +358,19 @@ public class SearchController : MonoBehaviour
         {
             if (nameInput == 1)
             {
-                if (user.firstName.Equals(nameSearched))
+                if (user.firstName.ToLower().Equals(nameSearched.ToLower()))
                 {
                     u.Add(user);
                 }
             }
             else if (nameInput == 2)
             {
-                if (user.lastName.Equals(nameSearched))
+                if (user.lastName.ToLower().Equals(nameSearched.ToLower()))
                 {
                     u.Add(user);
                 }
             } else if (nameInput == 3){
-                if (user.firstName.Equals(nameSearched.Split(' ')[0]) && user.lastName.Equals(nameSearched.Split(' ')[1]))
+                if (user.firstName.ToLower().Equals(nameSearched.ToLower().Split(' ')[0]) && user.lastName.ToLower().Equals(nameSearched.ToLower().Split(' ')[1]))
                 {
                     u.Add(user);
                     Debug.Log(user.firstName + " " + user.lastName);

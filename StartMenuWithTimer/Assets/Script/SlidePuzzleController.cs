@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class SlidePuzzleController : MonoBehaviour, IPointerDownHandler
 {
-    public RectTransform open;
+    private bool selected = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +21,12 @@ public class SlidePuzzleController : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData data)
     {
-        if (Vector2.Distance(transform.localPosition, open.localPosition) == 100)
-        {
-            float tempX = transform.localPosition.x;
-            float tempY = transform.localPosition.y;
-            transform.localPosition = open.localPosition;
-            open.localPosition = new Vector2(tempX, tempY);
+        if (selected) {
+            selected = false;
+            transform.GetComponent<Image>().color = Color.white;
+        } else {
+            selected = true;
+            transform.GetComponent<Image>().color = Color.black;
         }
     }
 }
