@@ -64,6 +64,7 @@
     <Compile Include="Assets\backwardCloset.cs" />
     <Compile Include="Assets\BatteryDetect.cs" />
     <Compile Include="Assets\batteryPicked.cs" />
+    <Compile Include="Assets\BlueLightController.cs" />
     <Compile Include="Assets\buttonPress.cs" />
     <Compile Include="Assets\CabinetLeftView.cs" />
     <Compile Include="Assets\CabinetRightView.cs" />
@@ -86,6 +87,8 @@
     <Compile Include="Assets\fuseMode.cs" />
     <Compile Include="Assets\fuseView.cs" />
     <Compile Include="Assets\gameItemSceneManager.cs" />
+    <Compile Include="Assets\GratePower.cs" />
+    <Compile Include="Assets\GratePowerOpen.cs" />
     <Compile Include="Assets\HiddenImageController.cs" />
     <Compile Include="Assets\itemsSharingScene.cs" />
     <Compile Include="Assets\locker.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Assets\paintingUVSetup.cs" />
     <Compile Include="Assets\paintView.cs" />
     <Compile Include="Assets\PictureDeskView.cs" />
+    <Compile Include="Assets\policeIntroSCene.cs" />
     <Compile Include="Assets\prototypeSceneManager.cs" />
     <Compile Include="Assets\puzzleSceneManagement.cs" />
     <Compile Include="Assets\sceneManagerNorth.cs" />
@@ -130,11 +134,15 @@
     <Compile Include="Assets\Script\WindowBehavior.cs" />
     <Compile Include="Assets\SetEnlarge.cs" />
     <Compile Include="Assets\sharingItemsScreen.cs" />
+    <Compile Include="Assets\showCredits.cs" />
+    <Compile Include="Assets\showHint.cs" />
+    <Compile Include="Assets\showMainMenu.cs" />
     <Compile Include="Assets\soundManager.cs" />
     <Compile Include="Assets\SwitchLeft.cs" />
     <Compile Include="Assets\SwitchNorth.cs" />
     <Compile Include="Assets\SwitchRight.cs" />
     <Compile Include="Assets\SwitchSouth.cs" />
+    <Compile Include="Assets\textFade.cs" />
     <Compile Include="Assets\Timer.cs" />
     <Compile Include="Assets\ToGrateScene.cs" />
     <Compile Include="Assets\touchRotate.cs" />

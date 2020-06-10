@@ -9,7 +9,8 @@ public class changeSafeMOde : MonoBehaviour
     public GameObject key;
     public fuseMode fuseUV;
     public Sprite blueMode;
-    int count = 0;
+    public Sprite normalMode;
+    public int count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +20,19 @@ public class changeSafeMOde : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (safePuzzle.isOpen == true && count == 0)
+        if (fuseUV.isUV == false && safePuzzle.isOpen == true && count == 0)
         {
-            count++;
-            StartCoroutine(waitToChange());
+            count = 1;
+           StartCoroutine(waitToChange());
         }
-        if (count == 1 && fuseUV.isUV == true)
+        else if (fuseUV.isUV == true && safePuzzle.isOpen == true)
         {
+            count = 2;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = blueMode;
+        }
+        else if (fuseUV.isUV == false && safePuzzle.isOpen == true && count == 2)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = normalMode;
         }
     }
 
