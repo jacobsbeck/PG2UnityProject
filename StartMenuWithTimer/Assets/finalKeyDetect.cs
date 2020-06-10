@@ -25,10 +25,9 @@ public class finalKeyDetect : MonoBehaviour
         Debug.Log(inventorysystem.GetComponent<InventorySystem>().currentitem());
         if (inventorysystem.GetComponent<InventorySystem>().currentitem() == "keyDoor")
         {
+            SceneManager.LoadScene("Ending");
             Debug.Log("KEY DETECTED"); //if (inventorysystem.GetComponent<InventorySystem>().currentitem() == "Key-PNG-Clipart-Background")
             inventorysystem.GetComponent<InventorySystem>().remove();
-            endScene.SetActive(true);
-            closedDoor.SetActive(false);
         }
     }
 }

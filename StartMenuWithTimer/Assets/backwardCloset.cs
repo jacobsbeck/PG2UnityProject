@@ -22,11 +22,12 @@ public class backwardCloset : MonoBehaviour
         if (closetScene.sceneCount == 0)
         {
             closetScene.sceneCount = 3;
+            Debug.Log(closetScene.sceneCount);
         }
         else
         {
             closetScene.sceneCount--;
-            closetScene.isEvent = true;
+            //closetScene.isEvent = true;
         }
     }
 }
