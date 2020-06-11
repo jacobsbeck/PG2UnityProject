@@ -7,12 +7,15 @@ public class TabController : MonoBehaviour
 {
     public UnityEngine.UI.Button searchBtn;
     public UnityEngine.UI.Button mapBtn;
+    public UnityEngine.UI.Button helpBtn;
 
     public UnityEngine.UI.Button loadUrlBtn;
     public UnityEngine.UI.Button refreshUrlBtn;
 
     public RectTransform searchWindow;
     public RectTransform mapWindow;
+    public RectTransform helpWindow;
+
     public RectTransform noPageWindow;
     public RectTransform puzzleWindowBook;
     public RectTransform puzzleWindowWall;
@@ -28,6 +31,7 @@ public class TabController : MonoBehaviour
     {
         searchBtn.onClick.AddListener(loadSearchTab);
         mapBtn.onClick.AddListener(loadMapTab);
+        helpBtn.onClick.AddListener(loadHelpTab);
         loadUrlBtn.onClick.AddListener(loadUrl);
         refreshUrlBtn.onClick.AddListener(refreshUrl);
 
@@ -67,6 +71,17 @@ public class TabController : MonoBehaviour
         urlText.text = "www.map.com";
     }
 
+    private void loadHelpTab()
+    {
+        clearCurrentWindow();
+        currentTab = 2;
+        helpWindow.localScale = new Vector3(1, 1, 1);
+        Color col = helpBtn.GetComponent<Image>().color;
+        col.a = 1;
+        helpBtn.GetComponent<Image>().color = col;
+        urlText.text = "www.help.com";
+    }
+
     private void loadUrl() {
         string t = urlText.text.Replace("www.", "");
         clearCurrentWindow();
@@ -88,8 +103,12 @@ public class TabController : MonoBehaviour
         {
             loadMapTab();
         }
+        else if (t == "help.com")
+        {
+            loadHelpTab();
+        }
 
-        else if (t != "map.com" && t != "search.com" && t != "bluelodge.com" && t != "slusho.com")
+        else if (t != "help.com" && t != "map.com" && t != "search.com" && t != "bluelodge.com" && t != "slusho.com")
         {
             clearCurrentWindow();
             noPageWindow.localScale = new Vector3(1, 1, 1);
@@ -103,6 +122,8 @@ public class TabController : MonoBehaviour
             loadSearchTab();
         } else if (currentTab == 1) {
             loadMapTab();
+        } else if (currentTab == 2) {
+            loadHelpTab();
         }
     }
 
@@ -129,6 +150,13 @@ public class TabController : MonoBehaviour
             Color col = mapBtn.GetComponent<Image>().color;
             col.a = 100/255f;
             mapBtn.GetComponent<Image>().color = col;
+        }
+        else if (currentTab == 2)
+        {
+            helpWindow.localScale = new Vector3(0, 1, 1);
+            Color col = helpBtn.GetComponent<Image>().color;
+            col.a = 100 / 255f;
+            helpBtn.GetComponent<Image>().color = col;
         }
     }
 }
